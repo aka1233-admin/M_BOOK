@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Container Resize</title>
+
+    <!-- Tailwind CDN (for demo/prototype use only) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* .h3 {
+        font-size: clamp(1rem, 1.3vh, 3.5rem);
+      } */
+      .h3 {
+        font-size:  1.1vh;
+      }
+    /* .h3 {
+      @apply text-[1.4vh] ;
+      } */
+
+      .p {
+        font-size: clamp(1rem, 2.5vh, 2.5rem);
+      }
+    </style>
+  </head>
+  <body class="m-1 bg-gray-100 font-sans">
+    <div
+      class="w-full h-[98vh] flex items-center justify-center overflow-hidden"
+    >
+      <div
+        class="bg-white relative rounded-lg shadow-xl max-w-full max-h-full"
+        id="resizableContainer"
+      >
+        <!-- #This is header of page -->
+        <div
+          class="p-0 flex items-center bg-yellow-400"
+        >
+          <div class="flex-1 pl-8">
+            <div class="text-xl font-semibold text-center">
+              Vascular Intervention
+            </div>
+            <div class="text-center">Generic</div>
+          </div>
+          <div
+            class="flex items-center justify-end bg-[#5B82B2] px-[3vh] h-[10vh]"
+            
+          >
+            <img
+              src="/RI.svg"
+              alt="background image"
+              class="w-[3vh] h-[5vh] object-cover"
+            />
+          </div>
+        </div>
+        <!-- end of header -->
+        <div class="grid grid-cols-2 gap-4 p-4">
+          <div class="flex flex-col gap-4">
+            <div class="flex">
+              <img
+                src="/placeholder.jpg"
+                alt="background image"
+                class="w-[7vh] h-[7vh] object-cover"
+              />
+              <div class="">
+                <h3 class="h3 font-bold">
+                  <span class="text-[#5B82B2] text-[2vh]">A</span>ccess Sheath
+                </h3>
+                <p class="h3">
+                  A tube inserted into a blood vessel to provide access for
+                  other devices or procedures.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 class="h3 font-bold">Angiographic Imaging</h3>
+              <p class="h3">
+                Imaging technique used to visualize blood vessels and detect
+                abnormalities.
+              </p>
+              <h3 class="h3 font-bold">Angioplasty</h3>
+              <p class="h3">
+                A procedure to widen narrowed or obstructed arteries using a
+                balloon catheter
+              </p>
+              <h3 class="h3 font-bold">Anticoagulation Therapy</h3>
+              <p class="h3">
+                Use of medications to prevent blood clot formation and reduce
+                the risk of thromboembolic events.
+              </p>
+              <h3 class="h3 font-bold">Arterial Access</h3>
+              <p class="h3">
+                Establishing access to an artery for diagnostic or therapeutic
+                procedures
+              </p>
+              <h3 class="h3 font-bold">Arterial Occlusion</h3>
+              <p class="h3">
+                Blockage of an artery that impedes blood flow to tissues or
+                organs.
+              </p>
+              <h3 class="h3 font-bold">Atherosclerosis</h3>
+              <p class="h3">
+                The buildup of fatty deposits on the inner walls of arteries,
+                leading to reduced blood flow.
+              </p>
+              <h3 class="h3 font-bold">Atrial Septal Defect (ASD)</h3>
+              <p class="h3">
+                A congenital defect characterized by a hole in the atrial
+                septum.
+              </p>
+              <h3 class="h3 font-bold">
+                <span class="text-[#5B82B2] text-[2vh]">B</span>alloon
+                Deflation
+              </h3>
+              <p class="h3">
+                Process of deflating a balloon after it has been used to widen a
+                vessel.
+              </p>
+              <h3 class="h3 font-bold">Balloon Inflation</h3>
+              <p class="h3">
+                Process of expanding a balloon within a vessel to open or widen
+                a blockage
+              </p>
+              <h3 class="h3 font-bold">
+                <span class="text-[#5B82B2] text-[2vh]">C</span>ardiac
+                Catheterization
+              </h3>
+            </div>
+          </div>
+
+          <!-- right side -->
+          <div>
+            <p class="h3">
+              rocedure to diagnose and treat heart <br />conditions by inserting
+              a catheter into the heart or blood vessels
+            </p>
+            <h3 class="h3 font-bold">Cardiovascular Devices</h3>
+            <p class="h3">
+              Medical devices used to diagnose or treat cardiovascular
+              conditions, such as stents and pacemakers.
+            </p>
+            <h3 class="h3 font-bold">Catheterization</h3>
+            <p class="h3">The insertion of a catheter into a blood</p>
+            <p class="h3">
+              vessel to diagnose or treat <br />
+              conditions.
+            </p>
+
+            <h3 class="h3 font-bold">
+              Chronic Total Occlusion (CTO)
+            </h3>
+            <p class="h3">
+              Complete blockage of an artery that has persisted for a long time.
+            </p>
+            <h3 class="h3 font-bold">Clinical Trials</h3>
+            <p class="h3">
+              Research studies conducted to evaluate the effectiveness and
+              safety of medical treatments or devices
+            </p>
+            <h3 class="h3 font-bold">Coarctation of the Aorta</h3>
+            <p class="h3">
+              Narrowing of the aorta that impedes blood flow, often requiring
+              surgical repair
+            </p>
+            <img
+              src="/RI.svg"
+              alt="background image"
+              class="w-[8vh] h-[7.5vh] object-cover"
+            />
+            <h3 class="h3 font-bold">Congenital Heart Defects</h3>
+            <p class="h3">
+              Abnormalities in the heart structure present at birth, affecting
+              its function.
+            </p>
+            <h3 class="h3 font-bold">Congenital Heart Disease</h3>
+            <p class="h3">
+              Heart conditions present at birth that affect the structure and
+              function of the heart
+            </p>
+            <h3 class="h3 font-bold">Coronary Angiography</h3>
+            <p class="h3">
+              Imaging technique used to visualize the coronary arteries and
+              assess blood flow.
+            </p>
+            <!-- Page Number Box -->
+            <div class="absolute bottom-0 right-0">
+              <div class="bg-yellow-400 px-[3vh] py-[1.6vh] flex text-[2vh] font-semibold">03</div>
+            </div>
+          </div>
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function resizeContainer() {
+        const container = document.getElementById("resizableContainer");
+        const aspectRatio = 9 / 16;
+        const maxWidth = container.parentElement.clientWidth;
+        const maxHeight = container.parentElement.clientHeight;
+        const widthByHeight = maxHeight * aspectRatio;
+        const heightByWidth = maxWidth / aspectRatio;
+        if (widthByHeight <= maxWidth) {
+          container.style.width = widthByHeight + "px";
+          container.style.height = maxHeight + "px";
+        } else {
+          container.style.width = maxWidth + "px";
+          container.style.height = heightByWidth + "px";
+        }
+      }
+
+      window.addEventListener("resize", resizeContainer);
+      resizeContainer();
+    </script>
+  </body>
+</html>
