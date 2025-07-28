@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Container with Clamp</title>
+    <style>
+      /* Main two-column layout */
+      .main-content {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+        width: 100%;
+        padding-left: clamp(1rem, 4vw, 2rem);
+        padding-right: clamp(1rem, 4vw, 2rem);
+        box-sizing: border-box;
+      }
+      .main-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        min-width: 0;
+      }
+      .main-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        min-width: 0;
+      }
+      .procedure-block {
+        margin-bottom: 5px;
+      }
+      .procedure-title {
+      /* iPhone 12 Pro: width 390px, height 844px */
+      @media (min-width: 390px) and (max-width: 400px) and (min-height: 800px) and (max-height: 900px) {
+        .procedure-block {
+          margin-bottom: -2px;
+        }
+        .procedure-title {
+          font-size: clamp(0.7rem, 2.5vw, 1rem);
+        }
+        .procedure-desc {
+          font-size: clamp(0.7rem, 2vw, 0.8rem);
+        }
+      }
+      /* iPhone 12 Pro: width 390px, height 844px */
+      @media (min-width: 390px) and (max-width: 400px) and (min-height: 800px) and (max-height: 900px) {
+        .procedure-title {
+          font-size: clamp(0.7rem, 2.5vw, 1rem);
+        }
+        .procedure-desc {
+          font-size: clamp(0.7rem, 2vw, 0.8rem);
+        }
+    
+      }
+        font-size: clamp(0.65rem, 2vw, 0.9rem);
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 0.2rem;
+      }
+      /* Only for iPhone SE (max-width: 350px) */
+      /* iPhone 12 Pro (width: 390px, height: 844px) */
+      @media (min-width: 389px) and (max-width: 391px) and (min-height: 843px) and (max-height: 845px) {
+        /* Strictly target iPhone 12 Pro only, do not overlap with 14 Pro Max or others */
+        #access-sheath-title {
+          font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
+        }
+        #access-sheath-desc {
+          font-size: clamp(0.75rem, 2vw, 1rem) !important;
+          line-height: clamp(1.08, 2vw, 1.18) !important;
+          margin-top: 0.12rem !important;
+        }
+        #access-sheath-img {
+          width: 60px !important;
+          height: 60px !important;
+        }
+        .main-content {
+          gap: 0.9rem !important;
+          padding-left: clamp(0.7rem, 2vw, 1.2rem) !important;
+          padding-right: clamp(0.7rem, 2vw, 1.2rem) !important;
+        }
+        .main-left, .main-right {
+          gap: 0.18rem !important;
+        }
+        .procedure-block {
+          margin-bottom: -5px !important;
+        }
+        .procedure-title {
+          font-size: clamp(0.8rem, 2vw, 1.1rem) !important;
+        }
+        .procedure-desc {
+          font-size: clamp(0.7rem, 1.5vw, 0.9rem) !important;
+          line-height: clamp(1.1, 2vw, 1.2) !important;
+          margin-bottom: 0.13rem !important;
+        }
+        .navbar-title {
+          font-size: clamp(1rem, 2vw, 1.2rem) !important;
+        }
+        .navbar-subtitle {
+          font-size: clamp(0.8rem, 1vw, 1rem) !important;
+        }
+        .navbar-logo {
+          width: 36px !important;
+          height: 36px !important;
+        }
+        .navbar {
+          height: 52px !important;
+          min-height: 52px !important;
+        }
+        .procedure-img {
+          width: 60px !important;
+          height: 60px !important;
+        }
+        .responsive-container {
+          width: 98vw !important;
+          height: 88vh !important;
+          margin: 0 !important;
+          margin-top: 60px !important;
+          padding: 0 !important;
+        }
+      }
+      @media (max-width: 350px) {
+        .procedure-title {
+          font-size: clamp(0.1rem, 3vw, 0.8rem);
+        }
+        .procedure-desc{
+          font-size: clamp(0.1rem,0.5rem,0.5rem);
+        }
+      }
+      .procedure-desc {
+        font-size: clamp(0.65rem, 1.5vw, 0.6875rem);
+        color: #444;
+        margin-bottom: 0;
+        line-height: 1.3;
+      }
+      .procedure-highlight {
+        color: #5B82B2;
+        font-weight: 700;
+      }
+      .procedure-img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+      }
+      .main-footer {
+        width: 100%;
+        background: #facc15;
+        color: #222;
+        text-align: right;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 0.3rem 1rem;
+        border-radius: 0 0 12px 12px;
+        margin-top: 1rem;
+      }
+      /* Card block for Access Sheath */
+      .access-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        margin-bottom: 1rem;
+        margin-top:1rem;
+      }
+      .access-img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-right: 0.2rem;
+      }
+      .access-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .access-title {
+        margin-bottom: 0;
+        font-size: 0.2rem;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+      .access-title .access-a {
+        color: #5B82B2;
+        font-size: clamp(1rem,1.8vw,1.3rem);
+        font-weight: 700;
+      }
+      .access-title .access-rest {
+        color: #222;
+      }
+      .access-desc {
+        white-space: pre-line;
+        font-size: 0.85rem;
+        margin: -0.9rem 0 0 0;
+        color: #444;
+        line-height: 1.3;
+      }
+      .navbar {
+        width: 100%;
+        height: clamp(77px, 10vw, 52px);
+        display: flex;
+        align-items: center;
+        background: #facc15;
+        padding: 0;
+        min-height: 52px;
+        box-sizing: border-box;
+        /* border-radius: 8px 0 0 8px; */
+        overflow: hidden;
+        /* iPhone SE fix: override navbar height for small screens */
+        @media (max-width: 380px) {
+          .navbar {
+            height: 52px !important;
+            min-height: 52px !important;
+          }
+        }
+      }
+      .navbar-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 100%;
+        padding-left: 8px;
+      }
+      .navbar-center {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .navbar-title {
+        font-weight: 500;
+        font-size: clamp(1rem, 1.8vw, 1.1rem);
+        margin-bottom: 2px;
+        color: #222;
+      }
+      .navbar-subtitle {
+        font-size: clamp(0.9rem, 1vw, 1.1rem);
+        color: #222;
+      }
+      .navbar-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #5b82b2;
+        width: 52px;
+        height: 100%;
+        padding: 0 8px;
+      }
+      .navbar-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #eaeaea;
+      }
+
+      .responsive-container {
+        margin: 60px auto 0 auto;
+        /* padding: clamp(12px, 4vw, 24px); */
+        background: #f5f5f5;
+        /* border-radius: 12px; */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        width: clamp(95vw, 40vw, 400px);
+        height: clamp(80vh, 80vh, 100vh);
+        min-height: 0;
+        max-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .responsive-container h2 {
+        font-size: clamp(0.9rem, 2vw, 1.8rem);
+        margin: 8px 0;
+        word-break: break-word;
+      }
+
+      .responsive-container p {
+        font-size: clamp(0.7rem, 1.8vw, 1rem);
+        margin: 4px 0 12px 0;
+        word-break: break-word;
+      }
+      .container-inner {
+        width: 100%;
+        height: clamp(80px, 10vw, 100px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container-no-margin {
+        width: 100%;
+        height: clamp(80px, 10vw, 100px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        background-color: yellowgreen;
+      }
+
+      /* Samsung Galaxy S8+ (width: 360px, height: 740px) */
+      @media (min-width: 359px) and (max-width: 361px) and (min-height: 739px) and (max-height: 741px) {
+        /* Strictly target S8+ only, do not overlap with S20 Ultra or others */
+        #access-sheath-title {
+          font-size: clamp(0.8rem, 2vw, 1.1rem) !important;
+        }
+        #access-sheath-desc {
+          font-size: clamp(0.7rem, 2vw, 0.9rem) !important;
+          line-height: clamp(1, 2vw, 1.15) !important;
+          margin-top: 0.1rem !important;
+        }
+        #access-sheath-img {
+          width: 55px !important;
+          height: 55px !important;
+        }
+        .main-content {
+          gap: 0.7rem !important;
+          padding-left: clamp(1.1rem, 2vw, 1rem) !important;
+          padding-right: clamp(1.1rem, 2vw, 1rem) !important;
+        }
+        .main-left, .main-right {
+          gap: 0.2rem !important;
+        }
+        .procedure-block {
+          margin-bottom: -5px !important;
+        }
+        .procedure-title {
+          font-size: clamp(0.6rem, 2vw, 0.95rem) !important;
+        }
+        .procedure-desc {
+          font-size: clamp(0.6rem, 1.5vw, 0.8rem) !important;
+          line-height: clamp(1.05, 2vw, 1.15) !important;
+          margin-bottom: 0.1rem !important;
+        }
+        .navbar-title {
+          font-size: clamp(0.8rem, 2vw, 1.1rem) !important;
+        }
+        .navbar-subtitle {
+          font-size: clamp(0.7rem, 1vw, 0.9rem) !important;
+        }
+        .navbar-logo {
+          width: 32px !important;
+          height: 32px !important;
+        }
+        .navbar {
+          height: 48px !important;
+          min-height: 48px !important;
+        }
+        .procedure-img {
+          width: 55px !important;
+          height: 55px !important;
+        }
+        .responsive-container {
+          width: 98vw !important;
+          height: 85vh !important;
+          margin:0 !important;
+          margin-top: 60px !important;
+          padding: 0 !important;
+        }
+      }
+       .page-footer {
+        position: absolute;
+        right: 0vw;
+        bottom: 0vh;
+        background: #facc15;
+        color: #222;
+        /* font-weight: 600; */
+        font-size: 2vh;
+        width: 6vh;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5vh;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        z-index: 10;
+      }
+     
+
+
+    </style>
+  </head>
+  <body>
+    <div class="responsive-container">
+      <div class="navbar">
+        <div class="navbar-left">
+          <!-- Example SVG heart icon, replace with your own if needed -->
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 2C10 2 5 7 5 13C5 21 16 30 16 30C16 30 27 21 27 13C27 7 22 2 16 2Z"
+              stroke="white"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+        <div class="navbar-center">
+          <div class="navbar-title">Vascular Intervention</div>
+          <div class="navbar-subtitle">Generic</div>
+        </div>
+        <div class="navbar-right">
+          <img src="RI.svg" alt="ri logo" class="navbar-logo" />
+        </div>
+      </div>
+
+
+      <div class="main-content">
+        <div class="main-left">
+          <div class="procedure-block">
+          <div style="display: flex; align-items: flex-start; gap: 0.7rem;">
+            <img id="access-sheath-img" src="/placeholder.jpg" alt="Access Sheath" style="width: 70px; height: 70px; object-fit: contain; margin-bottom: 0.5rem;" />
+            <div id="access-sheath-col" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+              <div id="access-sheath-title" style="font-size: 0.65rem; font-weight: 600; margin-bottom: 0; line-height: 1.1;">
+                <span id="access-sheath-a" style="color: #5B82B2; font-size: clamp(1rem,2vw,1.5rem); font-weight: 700;">A</span><span style="color: #222;">ccess Sheath</span>
+              </div>
+              <div id="access-sheath-desc" style="font-size:0.65em; color: #444; text-align: left; line-height:clamp(1.05,2vw,1.3);">
+                A tube inserted
+into a blood vessel
+to provide access
+for other devices
+or procedures.
+              </div>
+            </div>
+          </div>
+    <script>
+      // Inline style adjustment for Samsung Galaxy S8+ (width: 360px, height: 740px)
+      function isGalaxyS8Plus() {
+        return window.innerWidth >= 350 && window.innerWidth <= 370 && window.innerHeight >= 700 && window.innerHeight <= 760;
+      }
+      function applyS8PlusStyles() {
+        if (isGalaxyS8Plus()) {
+          document.getElementById('access-sheath-img').style.width = '75px';
+          document.getElementById('access-sheath-img').style.height = '75px';
+          document.getElementById('access-sheath-title').style.fontSize = '1.05rem';
+          document.getElementById('access-sheath-desc').style.fontSize = '0.9rem';
+          document.getElementById('access-sheath-desc').style.lineHeight = '1.2';
+          document.getElementById('access-sheath-desc').style.marginTop = '0.1rem';
+        }
+      }
+      window.addEventListener('DOMContentLoaded', applyS8PlusStyles);
+      window.addEventListener('resize', applyS8PlusStyles);
+    </script>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Angiographic Imaging</div>
+            <div class="procedure-desc">Imaging technique used to visualize blood vessels and detect abnormalities.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Angioplasty</div>
+            <div class="procedure-desc">A procedure to widen narrowed or obstructed arteries using a balloon catheter.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Anticoagulation Therapy</div>
+            <div class="procedure-desc">Use of medications to prevent blood clot formation and reduce the risk of thromboembolic events.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Arterial Access</div>
+            <div class="procedure-desc">Establishing access to an artery for diagnostic or therapeutic procedures.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Arterial Occlusion</div>
+            <div class="procedure-desc">Blockage of an artery that impedes blood flow to tissues or organs.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Atherosclerosis</div>
+            <div class="procedure-desc">The buildup of fatty deposits on the inner walls of arteries, leading to reduced blood flow.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Atrial Septal Defect (ASD)</div>
+            <div class="procedure-desc">A congenital defect characterized by a hole in the atrial septum.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title"><span class="procedure-highlight">B</span>alloon Deflation</div>
+            <div class="procedure-desc">Process of deflating a balloon after it has been used to widen a vessel.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Balloon Inflation</div>
+            <div class="procedure-desc">Process of expanding a balloon within a vessel to open or widen a blockage.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title"><span class="procedure-highlight">C</span>ardiac Catheterization</div>
+          </div>
+        </div>
+        <div class="main-right">
+          <div class="procedure-desc">Procedure to diagnose and treat heart conditions by inserting a catheter into the heart or blood vessels.</div>
+          <div class="procedure-block">
+            <div class="procedure-title">Cardiovascular Devices</div>
+            <div class="procedure-desc">Medical devices used to diagnose or treat cardiovascular conditions, such as stents and pacemakers.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Catheterization</div>
+            <div class="procedure-desc">The insertion of a catheter into a blood vessel to diagnose or treat conditions.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Chronic Total Occlusion (CTO)</div>
+            <div class="procedure-desc">Complete blockage of an artery that has persisted for a long time.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Clinical Trials</div>
+            <div class="procedure-desc">Research studies conducted to evaluate the effectiveness and safety of medical treatments or devices.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Coarctation of the Aorta</div>
+            <div class="procedure-desc">Narrowing of the aorta that impedes blood flow, often requiring surgical repair.</div>
+          </div>
+          <div class="procedure-block">
+            <img src="/RI.svg" alt="Congenital Heart Defects" class="procedure-img" />
+            <div class="procedure-title">Congenital Heart Defects</div>
+            <div class="procedure-desc">Abnormalities in the heart structure present at birth, affecting its function.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Congenital Heart Disease</div>
+            <div class="procedure-desc">Heart conditions present at birth that affect the structure and function of the heart.</div>
+          </div>
+          <div class="procedure-block">
+            <div class="procedure-title">Coronary Angiography</div>
+            <div class="procedure-desc">Imaging technique used to visualize the coronary arteries and assess blood flow.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+      <div class="page-footer">04</div>
+     
+
+    </div>
+  </body>
+</html>
