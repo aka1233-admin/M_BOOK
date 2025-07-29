@@ -3,17 +3,16 @@
   
   
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background: #eaeaea;
-        width: 100vw;
-        height: 100vh;
-        min-height: 100vh;
-        min-width: 100vw;
-        box-sizing: border-box;
-      }
+    html, body {
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+  touch-action: none;
+}
       .h3 {
         font-size: clamp(1rem, 1.1vh, 2.5rem);
         /* font-weight: 550; */
