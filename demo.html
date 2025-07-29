@@ -86,19 +86,23 @@
         height: clamp(6vh,7.5vh,10vh);
         object-fit: cover;
       }
-      .page-footer-box {
-        position: absolute;
-        bottom: 1vh;
-        right: 1vh;
-      }
-      .page-footer-inner {
-        background: #facc15;
-        padding: clamp(1vh,1.6vh,2vh) clamp(2vh,3vh,4vh);
-        display: flex;
-        font-size: clamp(1.2vh,2vh,2.5vh);
-        /* font-weight: 600; */
-        /* border-radius: clamp(0.5vh,1vh,1.5vh); */
-      }
+    .page-footer-box {
+  position: absolute;
+  bottom: clamp(0vh, 0vh, 0vh);
+  right: clamp(0vh, 0vh, 0vh);
+  z-index: 2;
+}
+
+.page-footer-inner {
+  background: #facc15;
+  padding: clamp(0.5vh, 1vh, 1.5vh) clamp(1vh, 1.5vh, 2vh);
+  display: flex;
+  font-size: clamp(1.2vh, 1.5vh, 2vh);
+  /* border-radius: clamp(0.3vh, 0.6vh, 1vh); */
+  /* font-weight: 600; */
+}
+
+
     </style>
   </head>
   <body style="margin:0;padding:0;box-sizing:border-box;width:100vw;height:100vh;min-height:100vh;min-width:100vw;display:flex;align-items:center;justify-content:center;background:#eaeaea;overflow:hidden;">
@@ -171,10 +175,11 @@
             <h3 class="h3">Coronary Angiography</h3>
             <p class="p">Imaging technique used to visualize the coronary arteries and assess blood flow.</p>
             <!-- Page Number Box -->
-            <div class="page-footer-box">
+            
+          </div>
+          <div class="page-footer-box">
               <div class="page-footer-inner">04</div>
             </div>
-          </div>
         </div>
       </div>
     </div>
