@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  
   <head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"> -->
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    
     <style>
-      html, body {
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overscroll-behavior: none;
-        font-family: 'Lato', sans-serif;
-      }
+     html, body {
+  overflow: visible;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  font-family: 'Lato', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+}
       .h3 {
         font-size: clamp(1rem, 1.1vh, 2.5rem);
+        /* font-weight: 550; */
         margin: 0;
         margin-top: 1vh;
       }
       .p {
         font-size: clamp(1rem, 1.1vh, 2.5rem);
+        /* font-weight: 400; */
         margin: 0;
       }
       .main-grid {
@@ -47,6 +52,7 @@
         align-items: center;
         background: #facc15;
         width: 100%;
+        /* border-radius: clamp(1rem,2vh,2.5rem) clamp(1rem,2vh,2.5rem) 0 0; */
         min-height: clamp(5vh,8vh,10vh);
         height: clamp(5vh,8vh,10vh);
       }
@@ -82,30 +88,44 @@
         height: clamp(6vh,7.5vh,10vh);
         object-fit: cover;
       }
-      .page-footer-box {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: auto;
-        padding-top: clamp(1vh, 1.5vh, 2vh);
-      }
-      .page-footer-inner {
-        background: #facc15;
-        padding: clamp(0.5vh, 1vh, 1.5vh) clamp(1vh, 1.5vh, 2vh);
-        font-size: clamp(1.2vh, 1.5vh, 2vh);
-        font-weight: 500;
-      }
-      .right-col {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        flex-grow: 1;
-      }
+.page-footer-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: clamp(1vh, 1vh, 2vh);
+}
+.page-footer-inner {
+  background: #facc15;
+  padding: clamp(0.5vh, 1vh, 1.5vh) clamp(1vh, 1.5vh, 2vh);
+  font-size: clamp(1.2vh, 1.5vh, 2vh);
+  font-weight: 500;
+}
+.right-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+/* iPhone specific fixes */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+  
+  #aspectContainer {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+}
+
     </style>
   </head>
-  <body style="margin:0;padding:0;box-sizing:border-box;width:100vw;height:100vh;min-height:100vh;min-width:100vw;display:flex;align-items:center;justify-content:center;background:#eaeaea;">
+  <body style="margin:0;padding:0;box-sizing:border-box;width:100vw;height:100vh;min-height:100vh;min-width:100vw;display:flex;align-items:center;justify-content:center;background:#eaeaea;overflow:hidden;">
 
     <div id="aspectContainer" style="display:flex;align-items:center;justify-content:center;width:100vw;height:98vh;">
-     <div id="resizableContainer" style="background:#fff;overflow-y:auto;overflow-x:hidden;;margin-top:-7vh;position:relative;transform:translateY(-2vh);box-shadow:0 0.3vh 1vh rgba(0,0,0,0.08);max-width:100vw;max-height:100vh;width:100%;height:1669.22px;display:flex;flex-direction:column;overflow:hidden;">
+     <div id="resizableContainer" style="background:#fff;overflow-y:auto;overflow-x:hidden;margin-top:-7vh;position:relative;transform:translateY(-2vh);box-shadow:0 0.3vh 1vh rgba(0,0,0,0.08);max-width:100vw;max-height:100vh;width:100%;display:flex;flex-direction:column;overflow:hidden;">
 
         <!-- Header -->
         <div class="header-bar">
@@ -114,7 +134,7 @@
             <div style="font-size:clamp(1.5rem,2.2vh,2.5rem);font-weight:600;">Generic</div>
           </div>
           <div class="header-logo">
-            <img src="/RI.svg" alt="ri logo" />
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' text-anchor='middle' dominant-baseline='middle' fill='white' font-size='40'%3ERI%3C/text%3E%3C/svg%3E" alt="ri logo" />
           </div>
         </div>
         <!-- Main grid -->
@@ -122,7 +142,7 @@
           <!-- Left column -->
           <div class="left-col">
             <div style="display:flex;align-items:flex-start;gap:clamp(0.5rem,1.5vh,2rem);">
-              <img src="/placeholder.jpg" alt="Access Sheath" class="access-img" />
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ccc'/%3E%3Ctext x='50' y='50' text-anchor='middle' dominant-baseline='middle' fill='%23666' font-size='12'%3EImage%3C/text%3E%3C/svg%3E" alt="Access Sheath" class="access-img" />
               <div>
                 <h3 class="h3"><span style="color:#5B82B2;font-size:clamp(1.2rem,2.5vh,2.7rem);font-weight:700;">A</span>ccess Sheath</h3>
                 <p class="p">A tube inserted into a blood vessel to provide access for other devices or procedures.</p>
@@ -164,16 +184,13 @@
             <p class="p">Research studies conducted to evaluate the effectiveness and safety of medical treatments or devices</p>
             <h3 class="h3">Coarctation of the Aorta</h3>
             <p class="p">Narrowing of the aorta that impedes blood flow, often requiring surgical repair</p>
-            <img src="/RI.svg" alt="background image" />
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' text-anchor='middle' dominant-baseline='middle' fill='%235B82B2' font-size='40'%3ERI%3C/text%3E%3C/svg%3E" alt="background image" />
             <h3 class="h3">Congenital Heart Defects</h3>
             <p class="p">Abnormalities in the heart structure present at birth, affecting its function.</p>
             <h3 class="h3">Congenital Heart Disease</h3>
             <p class="p">Heart conditions present at birth that affect the structure and function of the heart</p>
             <h3 class="h3">Coronary Angiography</h3>
             <p class="p">Imaging technique used to visualize the coronary arteries and assess blood flow.</p>
-            <!-- Page Number Box -->
-            
-           
           </div>
         </div>
 
@@ -183,28 +200,64 @@
             </div>
       </div>
     </div>
-    <script>
-      function resizeContainer() {
-        const container = document.getElementById("resizableContainer");
-        const aspectRatio = 9 / 16;
-        const maxWidth = container.parentElement.clientWidth;
-        const maxHeight = container.parentElement.clientHeight;
-        const widthByHeight = maxHeight * aspectRatio;
-        const heightByWidth = maxWidth / aspectRatio;
-        if (widthByHeight <= maxWidth) {
-          container.style.width = widthByHeight + "px";
-          container.style.height = maxHeight + "px";
-        } else {
-          container.style.width = maxWidth + "px";
-          container.style.height = heightByWidth + "px";
-        }
-      }
-      window.addEventListener("resize", resizeContainer);
-      resizeContainer();
-    </script>
-    <script src="script.js"></script>
+   <script>
+  function resizeContainer() {
+    const container = document.getElementById("resizableContainer");
+    const aspectContainer = document.getElementById("aspectContainer");
 
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    
+    // Get actual available height (important for iPhones)
+    const availableHeight = aspectContainer.clientHeight;
 
- 
+    // Fixed 9:16 aspect ratio
+    const aspectRatio = 9 / 16;
+
+    let width = vw;
+    let height = vw / aspectRatio;
+
+    // If height too large, adjust to fit available screen space
+    if (height > availableHeight) {
+      height = availableHeight * 0.95; // Leave some margin
+      width = height * aspectRatio;
+    }
+
+    // Ensure width doesn't exceed screen
+    if (width > vw) {
+      width = vw * 0.95;
+      height = width / aspectRatio;
+    }
+
+    container.style.width = width + "px";
+    container.style.height = height + "px";
+
+    // Dynamic scaling based on content
+    const baseWidth = 400; // Base reference width
+    const scale = Math.min(width / baseWidth, 1);
+
+    container.style.transform = `scale(${scale}) translate(-50%, -50%)`;
+    container.style.transformOrigin = "top left";
+    container.style.position = "absolute";
+    container.style.left = "50%";
+    container.style.top = "50%";
+  }
+
+  // Enhanced event listeners for better iPhone compatibility
+  window.addEventListener("resize", resizeContainer);
+  window.addEventListener("load", resizeContainer);
+  window.addEventListener("orientationchange", function() {
+    setTimeout(resizeContainer, 100);
+  });
+  
+  // Handle iPhone viewport changes
+  if ('visualViewport' in window) {
+    window.visualViewport.addEventListener('resize', resizeContainer);
+  }
+
+  // Initial call
+  resizeContainer();
+</script>
+
   </body>
-</html>   
+</html>
