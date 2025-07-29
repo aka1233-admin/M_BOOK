@@ -87,19 +87,24 @@
         object-fit: cover;
       }
 .page-footer-box {
-  position: absolute;
-  bottom: 0; /* updated value for visibility */
-  right: 0;  /* updated value for visibility */
-  /* z-index: 2; */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: clamp(1vh, 1.5vh, 2vh);
 }
 .page-footer-inner {
   background: #facc15;
   padding: clamp(0.5vh, 1vh, 1.5vh) clamp(1vh, 1.5vh, 2vh);
-  display: flex;
   font-size: clamp(1.2vh, 1.5vh, 2vh);
-  /* border-radius: clamp(0.3vh, 0.6vh, 1vh); */
-  /* font-weight: 600; */
+  font-weight: 500;
 }
+.right-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
 
 
     </style>
