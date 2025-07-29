@@ -83,9 +83,10 @@ function cleanText(text) {
 // ✅ Button creation
 function createTTSButton(text) {
   const button = document.createElement("button");
-  button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+  button.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-         width="12" height="12">
+         width="28" height="28"> <!-- Increased size -->
       <path stroke-linecap="round" stroke-linejoin="round"
             d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463
                8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75
@@ -99,18 +100,23 @@ function createTTSButton(text) {
   button.classList.add("tts-button");
 
   Object.assign(button.style, {
-    marginLeft: "6px",
+    marginLeft: "10px",
     background: "transparent",
     border: "0",
     cursor: "pointer",
-    fontSize: "40px",
-    color: "black"
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "32px",
+    height: "32px",
+    padding: "1px",
+    color: "black",
   });
 
   button.addEventListener("click", async (e) => {
     e.preventDefault();
     button.disabled = true;
-    button.style.opacity = "0.5"; // visual feedback
+    button.style.opacity = "0.5";
     await makeTextToSpeechCall(text);
     button.disabled = false;
     button.style.opacity = "1";
@@ -118,6 +124,7 @@ function createTTSButton(text) {
 
   return button;
 }
+
 
 // ✅ Insert button next to an element
 function addInlineTTSButton(element, text) {
