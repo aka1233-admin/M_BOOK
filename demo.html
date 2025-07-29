@@ -86,13 +86,12 @@
         height: clamp(6vh,7.5vh,10vh);
         object-fit: cover;
       }
-    .page-footer-box {
+.page-footer-box {
   position: absolute;
-  bottom: clamp(0vh, 0vh, 0vh);
-  right: clamp(0vh, 0vh, 0vh);
-  z-index: 2;
+  bottom: 0; /* updated value for visibility */
+  right: 0;  /* updated value for visibility */
+  /* z-index: 2; */
 }
-
 .page-footer-inner {
   background: #facc15;
   padding: clamp(0.5vh, 1vh, 1.5vh) clamp(1vh, 1.5vh, 2vh);
@@ -176,11 +175,14 @@
             <p class="p">Imaging technique used to visualize the coronary arteries and assess blood flow.</p>
             <!-- Page Number Box -->
             
+           
           </div>
+        </div>
+
+        <!-- footer -->
           <div class="page-footer-box">
               <div class="page-footer-inner">04</div>
             </div>
-        </div>
       </div>
     </div>
     <script>
