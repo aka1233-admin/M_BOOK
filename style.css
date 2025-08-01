@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: grey;
+  overflow: hidden;
+}
+#flipbook .page {
+  background: white;
+  overflow: hidden;
+}
+
+#flipbook {
+  width: 900px;
+  height: 600px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 80vh;
+  max-width: 900px; /* smaller container */
+  margin: 0 auto;
+  padding: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 5rem;
+}
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+
+/* Yellow footer bar at bottom */
+.page-footer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(2rem, 5vh, 2.5rem);
+  /* background-color: #F4B42A; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0rem;
+  /* border-radius: 0 0 12px 12px; */
+  box-sizing: border-box;
+}
+.page-content {
+  padding: 1rem;
+  padding-bottom: 3rem; /* prevent text from being hidden behind footer */
+}
+
+/* Page number inside yellow bar */
+.footer-number-box {
+  background-color:#F4B42A;
+  color: #222;
+  padding: 0.8rem 1rem;
+  /* font-weight: bold; */
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  /* border-radius: 6px; */
+}
+
+
+
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F4B42A; /* Yellow-orange background */
+  color: #222;
+  padding: 0rem;
+  /* border-radius: 12px 12px 0 0; */
+  height: clamp(70px, 10vw, 100px); /* ✅ responsive header height */
+}
+
+/* Left (Heart Icon) */
+.left-section .icon {
+  height: clamp(5.125rem, 8vw, 6rem);
+  width: clamp(5rem, 6vw, 5rem);
+  padding: 1rem;
+}
+
+/* Center (Text) */
+.center-section {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  color: #333;
+}
+
+/* Right (RI SVG) */
+.right-section {
+  background-color: #5886C4; /* Blue box background */
+
+}
+
+.ri-logo {
+  height: clamp(4.125rem, 8vw, 6rem);  /* 50px to 96px */
+  width: clamp(4rem, 6vw, 5rem);     /* 40px to 80px */
+  padding: 1rem;
+}
+
+
+
+#flipbook {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.page p, .page h1, .page h2 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 500px) {
+  .main-container {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 0rem;
+  }
+
+  header, footer {
+    font-size: 1rem;
+    padding: 0rem;
+  }
+
+  .page p, .page h1, .page h2 {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+}
+
+/* ✅ Mobile-specific tweaks — perfect for iPhone SE and similar */
+@media (max-width: 375px) {
+  .main-container {
+    max-width: 100%;
+    margin-top: 2rem;
+    border-radius: 0;
+    padding: 0rem;
+    height: 90vh;
+  }
+
+  header, footer {
+    /* font-size: 0.95rem; */
+    font-size: clamp(0rem, 3.5vw, 1.2rem);
+    padding: 0rem;
+  }
+
+  .page p, .page h1, .page h2 {
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+
+  #flipbook {
+    aspect-ratio: auto;
+    height: auto;
+  }
+}
