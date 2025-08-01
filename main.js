@@ -18,27 +18,49 @@ $(document).ready(function () {
     `;
   }
 
-  // Load all 150 pages (dynamically check file name)
+  // Load pages
   for (let i = 1; i <= totalPages; i++) {
-    const isCover = i <= 4; // OR use: filename logic if needed
+    const isCover = i <= 4;
     const fileName = isCover ? `cover${i}.html` : `page${i}.html`;
 
     $('#flipbook').append(`<div id="page${i}" class="page">Loading...</div>`);
 
     $(`#page${i}`).load(`pages/${fileName}`, function () {
-      // ✅ Only prepend header if it's not a cover page
       if (!fileName.startsWith("cover")) {
         $(this).prepend(createHeader());
       }
     });
   }
 
-  // ✅ Flipbook init
+  // Initialize flipbook
   $('#flipbook').turn({
-  width: $(window).width(),
-  height: $(window).height(),
-  autoCenter: true,
-  display: 'single',
-  duration: 800,
-});
+    width: '100%',
+    height: '100%',
+    autoCenter: true,
+    display: 'single',
+    duration: 800,
+    acceleration: true
+  });
+
+  // ✅ Allow click anywhere to turn page
+  $('#flipbook').on('click', '.page', function (e) {
+    const flipbook = $('#flipbook');
+    const currentPage = flipbook.turn('page');
+    const totalPages = flipbook.turn('pages');
+
+    const pageWidth = $(this).outerWidth();
+    const clickX = e.pageX - $(this).offset().left;
+
+    if (clickX < pageWidth / 2) {
+      // Left half → previous page
+      if (currentPage > 1) {
+        flipbook.turn('previous');
+      }
+    } else {
+      // Right half → next page
+      if (currentPage < totalPages) {
+        flipbook.turn('next');
+      }
+    }
+  });
 });
