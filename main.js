@@ -23,7 +23,7 @@ $(document).ready(function () {
     const isCover = i <= 4;
     const fileName = isCover ? `cover${i}.html` : `page${i}.html`;
 
-    $('#flipbook').append(`<div id="page${i}" class="page">Loading...</div>`);
+    $('#flipbook').append(`<div id="page${i}" class="page">page${i}</div>`);
 
     $(`#page${i}`).load(`pages/${fileName}`, function () {
       if (!fileName.startsWith("cover")) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
     acceleration: true
   });
 
-  // ✅ Allow click anywhere to turn page
+  // Allow click anywhere to turn page
   $('#flipbook').on('click', '.page', function (e) {
     const flipbook = $('#flipbook');
     const currentPage = flipbook.turn('page');

@@ -171,7 +171,6 @@ html, body {
   }
 }
 
-/* ✅ Mobile-specific tweaks — perfect for iPhone SE and similar */
 @media (max-width: 375px) {
   .main-container {
     max-width: 100%;
