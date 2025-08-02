@@ -26,16 +26,16 @@ html, body {
   align-items: stretch;
   justify-content: space-between;
   height: 80vh;
-  max-width: 900px; /* smaller container */
-  margin: 0 auto;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-block: clamp(1rem, 4vh, 2rem); 
   padding: 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
-  border-radius: 12px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  /* border-radius: 12px; */
 }
+
 .page {
   position: relative;
   display: flex;
