@@ -44,6 +44,19 @@ html, body {
   background-color: white;
   overflow: hidden;
 }
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  /* object-fit: contain; */
+  display: block; 
+}
+img.responsive-image {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  /* object-fit: contain; */
+}
 @supports(padding: max(0px)) {
   body {
     padding: env(safe-area-inset);
@@ -59,12 +72,12 @@ html, body {
   left: 0;
   width: 100%;
   height: clamp(2rem, 5vh, 2.5rem);
-  
+  /* background-color: #F4B42A; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 0rem;
-
+  /* border-radius: 0 0 12px 12px; */
   box-sizing: border-box;
 }
 .page-content {
@@ -77,9 +90,9 @@ html, body {
   background-color:#F4B42A;
   color: #222;
   padding: 0.8rem 1rem;
-
+  /* font-weight: bold; */
   font-size: clamp(1rem, 1.5vw, 1.1rem);
-
+  /* border-radius: 6px; */
 }
 
 
@@ -91,8 +104,8 @@ html, body {
   background-color: #F4B42A; /* Yellow-orange background */
   color: #222;
   padding: 0rem;
-
-  height: clamp(70px, 10vw, 100px); /* responsive header height */
+  /* border-radius: 12px 12px 0 0; */
+  height: clamp(70px, 10vw, 100px); /* ✅ responsive header height */
 }
 
 /* Left (Heart Icon) */
@@ -196,5 +209,29 @@ html, body {
     height: auto;
   }
 }
+/* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
+  
+  .page img.responsive-image {
+    width: 110%;
+    height: auto;
+    object-fit: contain;
+  }
 
+  .main-container {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+ }
+
+  #flipbook {
+    width: 100vw !important;
+    height: auto;
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
+} */
 
