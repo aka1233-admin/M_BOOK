@@ -1,17 +1,42 @@
 $(document).ready(function () {
   const totalPages = 150;
 
-  const coverPages = [1, 2, 3, 4,31,47,71,97,120,145]; // Add any internal cover pages here
+  const coverPages = [1, 2, 3, 4, 31, 47, 71, 97, 120, 145]; // internal + outer covers
 
-  function createHeader() {
+  // Section definitions (startPage: { title, subtitle })
+  const sections = [
+    { start: 4, title: "Vascular Intervention", subtitle: "Generic" },
+    { start: 31, title: "Cardiac Surgery", subtitle: "Generic" },
+    { start: 47, title: "Orthopedic", subtitle: "Generic" },
+    { start: 71, title: "Endo Surgery", subtitle: "Generic" },
+    { start: 97, title: "Dignostics", subtitle: "Generic" },
+    { start: 120, title: "ENT", subtitle: "Generic" },
+    { start: 145, title: "Trauma", subtitle: "Generic" }
+  ];
+
+  // Function to get section title and subtitle based on page number
+  function getHeaderForPage(pageNumber) {
+    let currentSection = sections[0];
+    for (let i = 0; i < sections.length; i++) {
+      if (pageNumber >= sections[i].start) {
+        currentSection = sections[i];
+      } else {
+        break;
+      }
+    }
+    return createHeader(currentSection.title, currentSection.subtitle);
+  }
+
+  // Header generator with dynamic title & subtitle
+  function createHeader(title = "Default Title", subtitle = "Generic") {
     return `
       <header class="custom-header">
         <div class="left-section">
           <img src="images/placeholder.jpg" alt="Heart" class="icon" />
         </div>
         <div class="center-section">
-          <div class="title">Vascular Intervention</div>
-          <div class="subtitle">Generic</div>
+          <div class="title">${title}</div>
+          <div class="subtitle">${subtitle}</div>
         </div>
         <div class="right-section">
           <img src="images/RI.svg" alt="RI Logo" class="ri-logo" />
@@ -20,23 +45,21 @@ $(document).ready(function () {
     `;
   }
 
-  let visualPageNumber = 1; // this is the flipbook visible page counter
+  let visualPageNumber = 1;
 
   for (let i = 1; i <= totalPages; i++) {
     let isCover = coverPages.includes(i);
     let fileName = isCover ? `cover${i}.html` : `page${i}.html`;
 
-    // Use logical id to avoid skipping visual page numbers
     $('#flipbook').append(`<div id="page${visualPageNumber}" class="page">Loading page ${i}</div>`);
 
-    // Load content and conditionally add header
+    // Load content with dynamic header
     $(`#page${visualPageNumber}`).load(`pages/${fileName}`, function () {
       if (!isCover) {
-        $(this).prepend(createHeader());
+        $(this).prepend(getHeaderForPage(i)); // Use real page number to determine section
       }
     });
 
-    // Only increment visual page number if not a hidden skip
     visualPageNumber++;
   }
 
