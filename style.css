@@ -110,7 +110,7 @@ img.responsive-image {
   color: #222;
   padding: 0rem;
   /* border-radius: 12px 12px 0 0; */
-  height: clamp(70px, 10vw, 100px); /* ✅ responsive header height */
+  height: clamp(70px, 10vw, 100px); /*responsive header height */
 }
 
 /* Left (Heart Icon) */
