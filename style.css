@@ -214,6 +214,34 @@ img.responsive-image {
     height: auto;
   }
 }
+
+
+/* Fix layout for Galaxy S8, S20 Ultra (portrait) */
+@media only screen and (max-width: 360px) and (min-device-pixel-ratio: 3), 
+       only screen and (max-width: 375px) and (min-device-pixel-ratio: 4) {
+  .main-container {
+    height: auto;    /* let it grow instead of being fixed at 80vh */
+    margin-block: 1rem;
+    padding: 0.5rem;
+  }
+
+  #flipbook {
+    aspect-ratio: auto;  /* allow automatic height */
+    height: auto;
+  }
+
+  .page {
+    height: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  img.responsive-image {
+    width: 100%;        /* scale to container width properly */
+    height: auto;
+    max-height: 80vh;
+  }
+}
+
 /* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
   
   .page img.responsive-image {
