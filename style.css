@@ -10,15 +10,19 @@ html, body {
   overflow: hidden;
   overflow-x: hidden;
 }
-#flipbook .page {
-  background: white;
+/* #flipbook .page {
+  background-color: white;
   overflow: hidden;
 }
 
 #flipbook {
   width: 900px;
-  height: 600px;
-}
+   /* width: 100%; */
+  /* aspect-ratio: 16 / 9; */
+  /* height: 600px; */
+  /* z-index: 10; */
+  /* background-color: white; */
+/* } */ 
 
 .main-container {
   display: flex;
@@ -28,7 +32,7 @@ html, body {
   height: 80vh;
   max-width: 900px;
   margin-inline: auto;
-  margin-block: clamp(0.5rem,3rem, 2rem); 
+  margin-block: clamp(0.5rem,3vh, 2rem); 
   padding: 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
