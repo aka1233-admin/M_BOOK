@@ -8,16 +8,21 @@ html, body {
   font-family: sans-serif;
   background-color: grey;
   overflow: hidden;
+  overflow-x: hidden;
 }
-#flipbook .page {
-  background: white;
+/* #flipbook .page {
+  background-color: white;
   overflow: hidden;
 }
 
 #flipbook {
   width: 900px;
-  height: 600px;
-}
+   /* width: 100%; */
+  /* aspect-ratio: 16 / 9; */
+  /* height: 600px; */
+  /* z-index: 10; */
+  /* background-color: white; */
+/* } */ 
 
 .main-container {
   display: flex;
@@ -25,15 +30,16 @@ html, body {
   align-items: stretch;
   justify-content: space-between;
   height: 80vh;
-  max-width: 900px; /* smaller container */
-  margin: 0 auto;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-block: clamp(0.5rem,3vh, 2rem); 
   padding: 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
-  border-radius: 12px;
-  margin-top: 3rem;
+  /* border-radius: 12px; */
 }
+
 .page {
   position: relative;
   display: flex;
@@ -45,9 +51,21 @@ html, body {
 }
 .responsive-image {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* or 'contain' if you prefer full visibility */
-  display: block;
+  height: auto;
+  max-height: 100%;
+  /* object-fit: contain; */
+  display: block; 
+}
+img.responsive-image {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  /* object-fit: contain; */
+}
+@supports(padding: max(0px)) {
+  body {
+    padding: env(safe-area-inset);
+  }
 }
 
 
@@ -141,17 +159,15 @@ html, body {
   aspect-ratio: 16 / 9;
 }
 
-.responsive-image {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.page p, .page h1, .page h2 {
+.page p{
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  line-height: 1.5;
-  margin: 0.5rem 0;
+  line-height: 1.2;
+  margin: 0rem 0;
+}
+.page h1, .page h2 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1;
+  margin: 0.2rem 0;
 }
 
 @media (max-width: 500px) {
@@ -166,7 +182,10 @@ html, body {
     padding: 0rem;
   }
 
-  .page p, .page h1, .page h2 {
+  .page p{
+    font-size: clamp(0vh, 2.5vw, 1.2rem);
+  }
+  .page h1, .page h2 {
     font-size: clamp(0.9rem, 4vw, 1.2rem);
   }
 }
@@ -195,3 +214,29 @@ html, body {
     height: auto;
   }
 }
+/* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
+  
+  .page img.responsive-image {
+    width: 110%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .main-container {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+ }
+
+  #flipbook {
+    width: 100vw !important;
+    height: auto;
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
+} */
+

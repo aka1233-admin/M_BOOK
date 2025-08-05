@@ -1,6 +1,8 @@
 $(document).ready(function () {
   const totalPages = 150;
 
+  const coverPages = [1, 2, 3, 4,31,47,71,97,120,145]; // Add any internal cover pages here
+
   function createHeader() {
     return `
       <header class="custom-header">
@@ -18,18 +20,24 @@ $(document).ready(function () {
     `;
   }
 
-  // Load pages
+  let visualPageNumber = 1; // this is the flipbook visible page counter
+
   for (let i = 1; i <= totalPages; i++) {
-    const isCover = i <= 4;
-    const fileName = isCover ? `cover${i}.html` : `page${i}.html`;
+    let isCover = coverPages.includes(i);
+    let fileName = isCover ? `cover${i}.html` : `page${i}.html`;
 
-    $('#flipbook').append(`<div id="page${i}" class="page">page${i}</div>`);
+    // Use logical id to avoid skipping visual page numbers
+    $('#flipbook').append(`<div id="page${visualPageNumber}" class="page">Loading page ${i}</div>`);
 
-    $(`#page${i}`).load(`pages/${fileName}`, function () {
-      if (!fileName.startsWith("cover")) {
+    // Load content and conditionally add header
+    $(`#page${visualPageNumber}`).load(`pages/${fileName}`, function () {
+      if (!isCover) {
         $(this).prepend(createHeader());
       }
     });
+
+    // Only increment visual page number if not a hidden skip
+    visualPageNumber++;
   }
 
   // Initialize flipbook
@@ -42,7 +50,16 @@ $(document).ready(function () {
     acceleration: true
   });
 
-  // Allow click anywhere to turn page
+  // Keyboard Navigation
+  $(document).on('keydown', function (e) {
+    if (e.key === 'ArrowLeft') {
+      $('#flipbook').turn('previous');
+    } else if (e.key === 'ArrowRight') {
+      $('#flipbook').turn('next');
+    }
+  });
+
+  // Click Navigation
   $('#flipbook').on('click', '.page', function (e) {
     const flipbook = $('#flipbook');
     const currentPage = flipbook.turn('page');
@@ -52,12 +69,10 @@ $(document).ready(function () {
     const clickX = e.pageX - $(this).offset().left;
 
     if (clickX < pageWidth / 2) {
-      // Left half → previous page
       if (currentPage > 1) {
         flipbook.turn('previous');
       }
     } else {
-      // Right half → next page
       if (currentPage < totalPages) {
         flipbook.turn('next');
       }
