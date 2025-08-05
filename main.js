@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const totalPages = 150;
+  const totalPages = 152;
 
   const coverPages = [1, 2, 3, 4, 31, 47, 71, 97, 120, 145]; // internal + outer covers
 
