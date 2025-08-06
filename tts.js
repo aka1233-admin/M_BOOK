@@ -2924,8 +2924,8 @@ function createTTSButton(text) {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "16px",
-    height: "16px",
+    width: "13px",
+    height: "13px",
     padding: "1px",
     color: "black",
   });
