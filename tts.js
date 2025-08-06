@@ -107,8 +107,8 @@ function createTTSButton(text) {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "32px",
-    height: "32px",
+    width: "1vw",
+    height: "1vh",
     padding: "1px",
     color: "black",
   });
