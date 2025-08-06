@@ -32,7 +32,7 @@ html, body {
   height: 80vh;
   max-width: 900px;
   margin-inline: auto;
-  margin-block: clamp(0.5rem,3vh, 2rem); 
+  margin-block: clamp(0rem,0vh, 2rem); 
   padding: 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
