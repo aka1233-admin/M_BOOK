@@ -219,6 +219,7 @@ img.responsive-image {
   .page h2 {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
     display: flex;
+    line-height: 0.9;
   }
   #flipbook {
     aspect-ratio: auto;
