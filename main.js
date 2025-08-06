@@ -57,7 +57,7 @@ $(document).ready(function () {
     $(`#page${visualPageNumber}`).load(`pages/${fileName}`, function () {
       if (!isCover) {
         $(this).prepend(getHeaderForPage(i));
-        injectSpeakButtonsForBoldTerms(containerElement); // Use real page number to determine section
+        // injectSpeakButtonsForBoldTerms(containerElement); // Use real page number to determine section
       }
     });
 
@@ -88,24 +88,7 @@ $(document).ready(function () {
   });
 
   // Click Navigation
-  $('#flipbook').on('click', '.page', function (e) {
-    const flipbook = $('#flipbook');
-    const currentPage = flipbook.turn('page');
-    const totalPages = flipbook.turn('pages');
-
-    const pageWidth = $(this).outerWidth();
-    const clickX = e.pageX - $(this).offset().left;
-
-    if (clickX < pageWidth / 2) {
-      if (currentPage > 1) {
-        flipbook.turn('previous');
-      }
-    } else {
-      if (currentPage < totalPages) {
-        flipbook.turn('next');
-      }
-    }
-  });
+  
 });
 
 

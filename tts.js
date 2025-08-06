@@ -107,8 +107,8 @@ function createTTSButton(text) {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "1vw",
-    height: "1vh",
+    width: "32px",
+    height: "32px",
     padding: "1px",
     color: "black",
   });
@@ -136,7 +136,7 @@ function addInlineTTSButton(element, text) {
 
 // ✅ Search for target phrases inside <h3> tags
 function injectSpeakButtonsForBoldTerms(container = document) {
-  const boldElements = Array.from(container.querySelectorAll("h2"));
+  const boldElements = Array.from(container.querySelectorAll("h3"));
   boldElements.forEach((el) => {
     if (processedElements.has(el)) return;
     const text = cleanText(el.textContent);
