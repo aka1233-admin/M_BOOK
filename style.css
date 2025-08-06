@@ -197,7 +197,7 @@ img.responsive-image {
 @media (max-width: 375px) {
   .main-container {
     max-width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 0rem;
     border-radius: 0;
     padding: 0rem;
     margin-bottom: 0.5rem;
