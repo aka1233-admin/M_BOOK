@@ -2917,7 +2917,7 @@ function createTTSButton(text) {
   button.classList.add("tts-button");
 
   Object.assign(button.style, {
-    marginLeft: "10px",
+    marginLeft: "5px",
     background: "transparent",
     border: "0",
     cursor: "pointer",
