@@ -57,7 +57,7 @@ $(document).ready(function () {
     $(`#page${visualPageNumber}`).load(`pages/${fileName}`, function () {
       if (!isCover) {
         $(this).prepend(getHeaderForPage(i));
-        // injectSpeakButtonsForBoldTerms(containerElement); // Use real page number to determine section
+        injectSpeakButtonsForBoldTerms(containerElement); // Use real page number to determine section
       }
     });
 
@@ -87,8 +87,7 @@ $(document).ready(function () {
     }
   });
 
-  // Click Navigation
-  
+
 });
 
 

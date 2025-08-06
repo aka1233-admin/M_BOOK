@@ -168,6 +168,8 @@ img.responsive-image {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   line-height: 1;
   margin: 0.2rem 0;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 500px) {
@@ -187,6 +189,7 @@ img.responsive-image {
   }
   .page h1, .page h2 {
     font-size: clamp(0.6rem, 4vw, 1.2rem);
+    display: flex;
   }
 }
 
@@ -213,6 +216,7 @@ img.responsive-image {
   }
   .page h2 {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
+    display: flex;
   }
   #flipbook {
     aspect-ratio: auto;
