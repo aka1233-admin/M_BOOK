@@ -56,7 +56,8 @@ $(document).ready(function () {
     // Load content with dynamic header
     $(`#page${visualPageNumber}`).load(`pages/${fileName}`, function () {
       if (!isCover) {
-        $(this).prepend(getHeaderForPage(i)); // Use real page number to determine section
+        $(this).prepend(getHeaderForPage(i));
+        injectSpeakButtonsForBoldTerms(containerElement); // Use real page number to determine section
       }
     });
 
@@ -69,9 +70,13 @@ $(document).ready(function () {
     height: '100%',
     autoCenter: true,
     display: 'single',
-    duration: 800,
+    duration: 1000,
     acceleration: true
   });
+
+  if (typeof initializeTTS === "function") {
+  initializeTTS();
+}
 
   // Keyboard Navigation
   $(document).on('keydown', function (e) {
@@ -82,23 +87,8 @@ $(document).ready(function () {
     }
   });
 
-  // Click Navigation
-  $('#flipbook').on('click', '.page', function (e) {
-    const flipbook = $('#flipbook');
-    const currentPage = flipbook.turn('page');
-    const totalPages = flipbook.turn('pages');
 
-    const pageWidth = $(this).outerWidth();
-    const clickX = e.pageX - $(this).offset().left;
-
-    if (clickX < pageWidth / 2) {
-      if (currentPage > 1) {
-        flipbook.turn('previous');
-      }
-    } else {
-      if (currentPage < totalPages) {
-        flipbook.turn('next');
-      }
-    }
-  });
 });
+
+
+
