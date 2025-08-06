@@ -186,7 +186,7 @@ img.responsive-image {
     font-size: clamp(0vh, 2.5vw, 1.2rem);
   }
   .page h1, .page h2 {
-    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    font-size: clamp(0.6rem, 4vw, 1.2rem);
   }
 }
 
@@ -205,15 +205,48 @@ img.responsive-image {
     padding: 0rem;
   }
 
-  .page p, .page h1, .page h2 {
+  .page p{
+    font-size: clamp(0.6rem, 0vw, 1rem);
+  }
+  .page h1{
     font-size: clamp(0.85rem, 4vw, 1rem);
   }
-
+  .page h2 {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+  }
   #flipbook {
     aspect-ratio: auto;
     height: auto;
   }
 }
+
+
+/* Fix layout for Galaxy S8, S20 Ultra (portrait) */
+@media only screen and (max-width: 360px) and (min-device-pixel-ratio: 3)
+       {
+  .main-container {
+    height: auto;    /* let it grow instead of being fixed at 80vh */
+    margin-block: 1rem;
+    padding: 0.5rem;
+  }
+
+  #flipbook {
+    aspect-ratio: auto;  /* allow automatic height */
+    height: auto;
+  }
+
+  .page {
+    height: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  img.responsive-image {
+    width: 100%;        /* scale to container width properly */
+    height: auto;
+    max-height: 80vh;
+  }
+}
+
 /* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
   
   .page img.responsive-image {
