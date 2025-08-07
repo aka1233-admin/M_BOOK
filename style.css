@@ -32,7 +32,7 @@ html, body {
   height: 80vh;
   max-width: 900px;
   margin-inline: auto;
-  margin-block: clamp(0.5rem,3vh, 2rem); 
+  margin-block: clamp(0rem,0vh, 2rem); 
   padding: 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,7 +87,7 @@ img.responsive-image {
 }
 .page-content {
   padding: 1rem;
-  padding-bottom: 3rem; /* prevent text from being hidden behind footer */
+  padding-bottom: 1rem; /* prevent text from being hidden behind footer */
 }
 
 /* Page number inside yellow bar */
@@ -166,7 +166,7 @@ img.responsive-image {
 }
 .page h1, .page h2 {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  line-height: 1;
+  /* line-height: 1; */
   margin: 0.2rem 0;
   display: flex;
   align-items: center;
@@ -177,6 +177,7 @@ img.responsive-image {
     max-width: 100%;
     border-radius: 0;
     padding: 0rem;
+    margin-top: 2rem;
   }
 
   header, footer {
@@ -190,15 +191,18 @@ img.responsive-image {
   .page h1, .page h2 {
     font-size: clamp(0.6rem, 4vw, 1.2rem);
     display: flex;
+    line-height: 1.5;
+    align-items: center;
   }
 }
 
 @media (max-width: 375px) {
   .main-container {
     max-width: 100%;
-    margin-top: 2rem;
+    margin-top: 0rem;
     border-radius: 0;
     padding: 0rem;
+    margin-bottom: 0.5rem;
     height: 90vh;
   }
 
@@ -217,6 +221,8 @@ img.responsive-image {
   .page h2 {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
     display: flex;
+    line-height: 1;
+    align-items: center;
   }
   #flipbook {
     aspect-ratio: auto;

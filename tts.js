@@ -2917,15 +2917,15 @@ function createTTSButton(text) {
   button.classList.add("tts-button");
 
   Object.assign(button.style, {
-    marginLeft: "10px",
+    marginLeft: "5px",
     background: "transparent",
     border: "0",
     cursor: "pointer",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "16px",
-    height: "16px",
+    width: "13px",
+    height: "13px",
     padding: "1px",
     color: "black",
   });
