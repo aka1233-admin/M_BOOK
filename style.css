@@ -222,7 +222,7 @@ h2 span{
   }
 
   .page p{
-    font-size: clamp(0.6rem, 0vw, 1rem);
+    font-size: clamp(0.5.8rem, 0vw, 1rem);
   }
   .page h1{
     font-size: clamp(0.85rem, 4vw, 1rem);
@@ -230,7 +230,7 @@ h2 span{
   .page h2 {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
     display: flex;
-    line-height: 1;
+    line-height: 1.5;
     align-items: center;
   }
   #flipbook {
