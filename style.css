@@ -68,6 +68,10 @@ img.responsive-image {
   }
 }
 
+h2 span{
+  font-size: 2vh;margin-top: -0.3vh;
+  color: #5B82B2;
+}
 
 
 /* Yellow footer bar at bottom */
@@ -177,7 +181,8 @@ img.responsive-image {
     max-width: 100%;
     border-radius: 0;
     padding: 0rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
+    height:90vh;
   }
 
   header, footer {
@@ -194,6 +199,10 @@ img.responsive-image {
     line-height: 1.5;
     align-items: center;
   }
+  h2 span{
+  font-size: 2vh;margin-top: -0.3vh;
+  color: #5B82B2;
+}
 }
 
 @media (max-width: 375px) {
@@ -228,6 +237,10 @@ img.responsive-image {
     aspect-ratio: auto;
     height: auto;
   }
+  h2 span{
+  font-size: 1.5vh;margin-top: -0.3vh;
+  color: #5B82B2;
+}
 }
 
 
@@ -255,6 +268,10 @@ img.responsive-image {
     height: auto;
     max-height: 80vh;
   }
+  h2 span{
+  font-size: 2vh;margin-top: -0.3vh;
+  color: #5B82B2;
+}
 }
 
 /* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
