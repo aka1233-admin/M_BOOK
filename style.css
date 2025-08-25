@@ -282,7 +282,7 @@ h2 span{
 }
 }
 
-/* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
+@media only screen and (max-width: 430px) and (min-device-width: 320px) {
   
   .page img.responsive-image {
     width: 110%;
@@ -306,5 +306,5 @@ h2 span{
   body, html {
     overflow-x: hidden;
   }
-} */
+}
 
