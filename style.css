@@ -15,6 +15,11 @@ html, body {
   overflow: hidden;
   overflow-x: hidden;
 }
+/* Viewport height variable with smart fallback for mobile UI bars */
+:root { --app-minvh: 100svh; }
+@supports (height: 100dvh) {
+  :root { --app-minvh: 100dvh; }
+}
 /* #flipbook .page {
   background-color: white;
   overflow: hidden;
@@ -34,13 +39,14 @@ html, body {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
-  height: auto;
+  height: calc(var(--app-minvh) * 0.8);
+  min-height: calc(var(--app-minvh) * 0.8);
+  max-height: calc(var(--app-minvh) * 0.8);
   max-width: 900px;
-   min-height: 80vh; 
   margin-inline: auto;
   margin-block: clamp(0rem,0vh, 2rem); 
   padding: 1rem;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
   /* border-radius: 12px; */
@@ -53,7 +59,7 @@ html, body {
   justify-content: flex-start;
   height: 100%;
   background-color: white;
-  overflow: hidden;
+  overflow: visible;
 }
 .responsive-image {
   width: 100%;
@@ -167,6 +173,7 @@ h2 span{
 #flipbook {
   width: 100%;
   aspect-ratio: 16 / 9;
+  height: 100%;
 }
 
 .page p{
@@ -188,13 +195,20 @@ h2 span{
     border-radius: 0;
     padding: 0rem;
     /* margin-top: 2rem; */
-    height:80vh;
+    height: calc(var(--app-minvh) * 0.8);
+    min-height: calc(var(--app-minvh) * 0.8);
+    max-height: calc(var(--app-minvh) * 0.8);
   }
 
   header, footer {
     font-size: 1rem;
     padding: 0rem;
   }
+
+  html, body { overflow: auto; overflow-x: hidden; }
+  #flipbook { aspect-ratio: auto; height: 100%; }
+  .page { height: 100%; }
+  .page-content { padding-bottom: 2.25rem; }
 
   .page p{
     font-size: clamp(0vh, 2.5vw, 1.2rem);
@@ -219,7 +233,9 @@ h2 span{
     border-radius: 0;
     padding: 0rem;
     margin-bottom: 0.5rem;
-    height: 90vh;
+    height: calc(var(--app-minvh) * 0.8);
+    min-height: calc(var(--app-minvh) * 0.8);
+    max-height: calc(var(--app-minvh) * 0.8);
   }
 
   header, footer {
@@ -241,15 +257,57 @@ h2 span{
     line-height: 1.5;
     align-items: center;
   }
-  #flipbook {
-    aspect-ratio: auto;
-    height: auto;
-  }
+  html, body { overflow: auto; overflow-x: hidden; }
+  #flipbook { aspect-ratio: auto; height: 100%; }
+  .page { height: 100%; }
+  .page-content { padding-bottom: 2.25rem; }
   h2 span{
   font-size: 1.5vh;margin-top: -0.3vh;
   color: #5B82B2;
 }
 }
+
+@media (max-width: 320px) {
+  .main-container {
+    max-width: 100%;
+    margin-top: 0rem;
+    border-radius: 0;
+    padding: 0rem;
+    margin-bottom: 0.5rem;
+    height: calc(var(--app-minvh) * 0.8);
+    min-height: calc(var(--app-minvh) * 0.8);
+    max-height: calc(var(--app-minvh) * 0.8);
+  }
+
+  header, footer {
+    /* font-size: 0.95rem; */
+    font-size: clamp(0rem, 3.5vw, 1.2rem);
+    padding: 0rem;
+  }
+
+  .page p{
+    font-size: clamp(0.6rem, 0vw, 1rem);
+    margin-top: -0.2rem;
+  }
+  .page h1{
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+  .page h2 {
+    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    display: flex;
+    line-height: 1.5;
+    align-items: center;
+  }
+  html, body { overflow: auto; overflow-x: hidden; }
+  #flipbook { aspect-ratio: auto; height: 100%; }
+  .page { height: 100%; }
+  .page-content { padding-bottom: 2.25rem; }
+  h2 span{
+  font-size: 1.5vh;margin-top: -0.3vh;
+  color: #5B82B2;
+}
+}
+
 
 
 /* Fix layout for Galaxy S8, S20 Ultra (portrait) */
@@ -259,6 +317,7 @@ h2 span{
     height: auto;    /* let it grow instead of being fixed at 80vh */
     margin-block: 1rem;
     padding: 0.5rem;
+
   }
 
   #flipbook {
@@ -282,7 +341,7 @@ h2 span{
 }
 }
 
-@media only screen and (max-width: 430px) and (min-device-width: 320px) {
+/* @media only screen and (max-width: 430px) and (min-device-width: 320px) {
   
   .page img.responsive-image {
     width: 110%;
@@ -306,5 +365,5 @@ h2 span{
   body, html {
     overflow-x: hidden;
   }
-}
+} */
 
