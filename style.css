@@ -34,8 +34,9 @@ html, body {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
-  height: 80vh;
+  height: auto;
   max-width: 900px;
+   min-height: 80vh; 
   margin-inline: auto;
   margin-block: clamp(0rem,0vh, 2rem); 
   padding: 1rem;
