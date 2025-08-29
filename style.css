@@ -21,9 +21,9 @@ html, body {
   :root { --app-90vh: 90dvh; }
 }
 /* Responsive outer spacing (top/bottom) capped so no scroll occurs */
-:root { --outer-gap: min(5svh, clamp(0.5rem, 2vh, 1.5rem)); }
+:root { --outer-gap: min(5svh, clamp(2rem, 2vh, 1.5rem)); }
 @supports (height: 90dvh) {
-  :root { --outer-gap: min(5dvh, clamp(0.5rem, 2vh, 1.5rem)); }
+  :root { --outer-gap: min(5dvh, clamp(2rem, 2vh, 1.5rem)); }
 }
 /* #flipbook .page {
   background-color: white;
