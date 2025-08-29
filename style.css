@@ -20,6 +20,11 @@ html, body {
 @supports (height: 90dvh) {
   :root { --app-90vh: 90dvh; }
 }
+/* Responsive outer spacing (top/bottom) capped so no scroll occurs */
+:root { --outer-gap: min(5svh, clamp(0.5rem, 2vh, 1.5rem)); }
+@supports (height: 90dvh) {
+  :root { --outer-gap: min(5dvh, clamp(0.5rem, 2vh, 1.5rem)); }
+}
 /* #flipbook .page {
   background-color: white;
   overflow: hidden;
@@ -44,7 +49,7 @@ html, body {
   max-height: var(--app-90vh);
   max-width: 900px;
   margin-inline: auto;
-  margin-block: 0; 
+  margin-block: var(--outer-gap); 
   padding: clamp(0.25rem, 1vw, 0.75rem);
   overflow: hidden; /* no page scroll inside container */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
