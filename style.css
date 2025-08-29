@@ -246,6 +246,11 @@ h2 span{
     max-height: var(--app-90vh);
   }
 
+  /* Responsive outer spacing (top/bottom) capped so no scroll occurs */
+:root { --outer-gap: min(5svh, clamp(2rem, 2vh, 1.5rem)); }
+@supports (height: 90dvh) {
+  :root { --outer-gap: min(5dvh, clamp(2rem, 2vh, 1.5rem)); }
+}
   header, footer {
     /* font-size: 0.95rem; */
     font-size: clamp(0rem, 3.5vw, 1.2rem);
