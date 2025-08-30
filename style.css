@@ -135,11 +135,192 @@ h2 span{
   height: clamp(70px, 10vw, 100px); /*responsive header height */
 }
 
+/* Responsive header and footer heights */
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F4B42A; /* Yellow-orange background */
+  color: #222;
+  padding: 0rem;
+  /* border-radius: 12px 12px 0 0; */
+  height: clamp(70px, 10vw, 100px); /*responsive header height */
+}
+
+/* Responsive header heights for different screen sizes */
+@media (min-width: 1400px) {
+  .custom-header {
+    height: 100px !important;
+  }
+  .page-footer-bar {
+    height: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .custom-header {
+    height: 90px !important;
+  }
+  .page-footer-bar {
+    height: 2.3rem !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .custom-header {
+    height: 85px !important;
+  }
+  .page-footer-bar {
+    height: 2.2rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .custom-header {
+    height: 80px !important;
+  }
+  .page-footer-bar {
+    height: 2.1rem !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .custom-header {
+    height: 75px !important;
+  }
+  .page-footer-bar {
+    height: 2rem !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 599px) {
+  .custom-header {
+    height: 70px !important;
+  }
+  .page-footer-bar {
+    height: 1.9rem !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+  .custom-header {
+    height: 65px !important;
+  }
+  .page-footer-bar {
+    height: 1.8rem !important;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 399px) {
+  .custom-header {
+    height: 60px !important;
+  }
+  .page-footer-bar {
+    height: 1.7rem !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 374px) {
+  .custom-header {
+    height: 55px !important;
+  }
+  .page-footer-bar {
+    height: 1.6rem !important;
+  }
+}
+
+@media (max-width: 319px) {
+  .custom-header {
+    height: 50px !important;
+  }
+  .page-footer-bar {
+    height: 1.5rem !important;
+  }
+}
+
 /* Left (Heart Icon) */
 .left-section .icon {
   height: clamp(5.125rem, 8vw, 6rem);
   width: clamp(5rem, 6vw, 5rem);
   padding: 1rem;
+}
+
+/* Responsive icon sizes for header */
+@media (min-width: 1400px) {
+  .left-section .icon {
+    height: 6rem !important;
+    width: 5rem !important;
+  }
+  .ri-logo {
+    height: 6rem !important;
+    width: 5rem !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .left-section .icon {
+    height: 5.5rem !important;
+    width: 4.5rem !important;
+  }
+  .ri-logo {
+    height: 5.5rem !important;
+    width: 4.5rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .left-section .icon {
+    height: 5rem !important;
+    width: 4rem !important;
+  }
+  .ri-logo {
+    height: 5rem !important;
+    width: 4rem !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .left-section .icon {
+    height: 4.5rem !important;
+    width: 3.5rem !important;
+  }
+  .ri-logo {
+    height: 4.5rem !important;
+    width: 3.5rem !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .left-section .icon {
+    height: 4rem !important;
+    width: 3rem !important;
+  }
+  .ri-logo {
+    height: 4rem !important;
+    width: 3rem !important;
+  }
+}
+
+@media (max-width: 399px) {
+  .left-section .icon {
+    height: 3.5rem !important;
+    width: 2.5rem !important;
+  }
+  .ri-logo {
+    height: 3.5rem !important;
+    width: 2.5rem !important;
+  }
+}
+
+@media (max-width: 319px) {
+  .left-section .icon {
+    height: 3rem !important;
+    width: 2rem !important;
+  }
+  .ri-logo {
+    height: 3rem !important;
+    width: 2rem !important;
+  }
 }
 
 /* Center (Text) */
@@ -376,4 +557,40 @@ h2 span{
     overflow-x: hidden;
   }
 } */
+
+/* Responsive footer number box */
+@media (min-width: 1400px) {
+  .footer-number-box {
+    padding: 1rem 1.2rem !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .footer-number-box {
+    padding: 0.9rem 1.1rem !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-number-box {
+    padding: 0.7rem 0.9rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 499px) {
+  .footer-number-box {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 319px) {
+  .footer-number-box {
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.8rem !important;
+  }
+}
 
